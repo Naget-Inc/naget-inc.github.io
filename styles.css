@@ -149,6 +149,10 @@ a i {
         padding: 50px 20px;
     }
 
+    header {
+        margin-top: 60px;
+    }
+
     .about-content {
         padding: 20px;
     }
