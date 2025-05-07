@@ -146,7 +146,7 @@ a i {
 
 @media (max-width: 768px) {
     .container {
-        padding: 15px;
+        padding: 50px 20px;
     }
 
     .about-content {
