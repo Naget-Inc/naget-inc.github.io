@@ -624,7 +624,7 @@ section:nth-of-type(7) .section-icon { color: #A0A0A0; } /* Light Grey */
 
 .feature-block i {
     font-size: 3rem;
-    color: var(--primary-color);
+    color: #c0c0c0; /* Bright grey */
     margin-bottom: 20px;
     display: block;
     text-align: center;
@@ -633,12 +633,6 @@ section:nth-of-type(7) .section-icon { color: #A0A0A0; } /* Light Grey */
 .feature-block p {
     font-size: 1.1em;
 }
-
-/* Unique colors for feature blocks */
-.feature-block:nth-child(1) i { color: #808080; } /* Medium Grey */
-.feature-block:nth-child(2) i { color: #909090; } /* Grey */
-.feature-block:nth-child(3) i { color: #707070; } /* Dark Grey */
-.feature-block:nth-child(4) i { color: #B0B0B0; } /* Lighter Grey */
 
 .feature-block h3 {
     font-size: 1.6rem;
