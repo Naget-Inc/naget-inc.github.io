@@ -1,0 +1,36 @@
+<svg width="136" height="70" viewBox="0 0 136 70" xmlns="http://www.w3.org/2000/svg">
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&amp;display=swap');
+        .logo-text {
+            font-family: "Open Sans", Arial, sans-serif; /* Fallback fonts */
+            font-size: 40px;
+            font-weight: 700; /* Bold */
+            fill: #FFFFFF; /* Light color for dark background */
+            letter-spacing: -0.5px; /* Adjust for tight kerning */
+        }
+        .g-dot-fill {
+            fill: #FFBF00; /* Gold/Amber color */
+        }
+        .t-accent-dots-fill {
+            fill: #FFFFFF; /* Match text color */
+        }
+    </style>
+
+    <text x="10" y="50" class="logo-text">n</text>
+    <text x="31.5" y="50" class="logo-text">a</text>
+    <text x="53" y="50" class="logo-text">g</text>
+    <!-- Dot in 'g'. 'g' starts at x=53. Approx center of bowl x=53+(24/2)=65. -->
+    <!-- Bowl center y: baseline 50 - (x-height/2). x-height for 40px OpenSans ~21.6px. y = 50 - 10.8 = 39.2. -->
+    <circle cx="65" cy="39.2" r="3" class="g-dot-fill"/>
+
+    <text x="76.5" y="50" class="logo-text">e</text>
+    <text x="98" y="50" class="logo-text">t</text>
+
+    <!-- Dots for 't'. 't' starts at x=98. 't' width ~18px. Center x=98+9 = 107. -->
+    <!-- y_dots: Top of 't' ascender y ~ 50 - (40*0.7) = 22. Dots just above crossbar, below top.
+         Crossbar of 't' for Open Sans is high. Say y_crossbar ~ 50 - (x_height*0.7) = 50 - 15 = 35.
+         Dots above that: y ~ 28.
+    -->
+    <circle cx="104" cy="28" r="2.8" class="t-accent-dots-fill"/> <!-- Slightly left of t-center -->
+    <circle cx="110" cy="28" r="2.8" class="t-accent-dots-fill"/> <!-- Slightly right of t-center -->
+</svg> 

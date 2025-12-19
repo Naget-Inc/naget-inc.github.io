@@ -19,10 +19,7 @@
             <article>
                 <section class="intro fade-in-up">
                     <p class="motto">Naget revolutionizes content discovery through an AI-powered ecosystem that transforms how we generate, organize, share, and discover valuable content. We're building the future of search.</p>
-                </section>
-
-                <section class="social-links fade-in-up delay-1">
-                    <p>Connect with us on <a href="https://twitter.com/NagetInc"><i class="fab fa-twitter"></i> Twitter</a> and <a href="https://www.linkedin.com/company/naget-inc"><i class="fab fa-linkedin"></i> LinkedIn</a> for the latest updates.</p>
+                    <p style="margin-top: 30px;"><a href="manifesto.html" style="font-size: 1.2em; font-weight: 600;">Read our manifesto →</a></p>
                 </section>
 
                 <section class="search-showcase-section fade-in-up delay-4">
@@ -123,7 +120,9 @@
 
                 <section class="fade-in-up delay-2">
                     <h2>Development Roadmap</h2>
-                    <p>We'll showcase advancements in web-scale search soon. Follow us on <a href="https://twitter.com/NagetInc"><i class="fab fa-twitter"></i> Twitter</a> and <a href="https://www.linkedin.com/company/naget-inc"><i class="fab fa-linkedin"></i> LinkedIn</a>.</p>
+                    <p>We'll showcase advancements in web-scale search soon.</p>
+                    <p style="margin-top: 30px;"><a href="manifesto.html" style="font-size: 1.2em; font-weight: 600;">Read our manifesto →</a></p>
+                    <p style="margin-top: 30px;">Connect with us on <a href="https://twitter.com/NagetInc"><i class="fab fa-twitter"></i> Twitter</a> and <a href="https://www.linkedin.com/company/naget-inc"><i class="fab fa-linkedin"></i> LinkedIn</a> for the latest updates.</p>
                 </section>
             </article>
         </main>
@@ -132,55 +131,54 @@
         </footer>
     </div>
 
+    <!-- Scroll indicator arrow -->
+    <div class="scroll-indicator" id="scrollIndicator">
+        <i class="fas fa-chevron-down"></i>
+    </div>
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Get all elements with the fade-in-up class
-            const fadeElements = document.querySelectorAll('.fade-in-up');
+            // Scroll indicator functionality
+            const scrollIndicator = document.getElementById('scrollIndicator');
+            const targetHeading = document.querySelector('.search-showcase-section h2');
             
-            // Set up the Intersection Observer
-            const observer = new IntersectionObserver((entries) => {
+            function updateArrowVisibility() {
+                if (!targetHeading) return;
+                
+                const rect = targetHeading.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                // Show arrow only when heading is not fully visible yet (still mostly below viewport)
+                // Hide when heading is in view or we've scrolled past it
+                if (rect.top > windowHeight * 0.6 && rect.bottom > 0) {
+                    // Heading is below the bottom 60% of viewport (haven't reached it yet)
+                    scrollIndicator.classList.remove('hidden');
+                } else {
+                    // Heading is approaching or in view
+                    scrollIndicator.classList.add('hidden');
+                }
+            }
+            
+            // Use Intersection Observer to track when the heading is visible
+            const headingObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    // If element is in viewport
-                    if (entry.isIntersecting) {
-                        const targetEl = entry.target;
-                        targetEl.classList.add('visible'); // Make the parent section/container visible
-
-                        // Check if this newly visible element CONTAINS .feature-blocks
-                        const featureBlocksContainer = targetEl.querySelector('.feature-blocks');
-                        
-                        if (featureBlocksContainer) {
-                            // Find direct children .feature-block elements of this container
-                            const blocks = Array.from(featureBlocksContainer.children)
-                                                .filter(child => child.classList.contains('feature-block'));
-
-                            blocks.forEach((block, index) => {
-                                setTimeout(() => {
-                                    block.classList.add('visible');
-                                }, index * 400); // 400ms stagger for left-to-right appearance
-                            });
-                        }
-                        // Unobserve after animating
-                        observer.unobserve(entry.target);
-                    }
+                    updateArrowVisibility();
                 });
             }, {
-                root: null, // viewport
-                threshold: 0.1, // 10% visibility triggers callback
-                rootMargin: '-50px 0px' // offset
+                root: null,
+                threshold: [0, 0.5, 1],
+                rootMargin: '0px'
             });
             
-            // Observe all fade elements
-            fadeElements.forEach(el => {
-                observer.observe(el);
-            });
+            // Start observing the heading
+            if (targetHeading) {
+                headingObserver.observe(targetHeading);
+                // Check initial state after a brief delay to ensure layout is complete
+                setTimeout(updateArrowVisibility, 100);
+            }
             
-            // Trigger first elements immediately
-            setTimeout(() => {
-                const introEl = document.querySelector('.intro');
-                if (introEl) {
-                    introEl.classList.add('visible');
-                }
-            }, 100);
+            // Also update on scroll for smooth behavior
+            window.addEventListener('scroll', updateArrowVisibility);
 
             // Carousel functionality
             const carouselSlidesContainer = document.querySelector('.carousel-slides');
