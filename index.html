@@ -9,6 +9,51 @@
     <link rel="icon" href="img/naget-app-icon.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        html, body { height: 100%; overflow: hidden; }
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            min-height: 100svh;
+        }
+        .container {
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-height: 100vh;
+            max-height: 100svh;
+        }
+        header { margin-bottom: 30px; }
+        .motto { margin-bottom: 40px; }
+        section { margin-bottom: 0; padding-bottom: 0; }
+        section:not(:last-of-type)::after { display: none; }
+        .intro { margin-bottom: 30px; }
+        footer { margin-top: 40px; margin-bottom: 0; padding: 0; }
+        main, article { width: 100%; }
+        p { margin-bottom: 0; }
+        @media (max-width: 768px) {
+            .container { padding: 20px 16px; }
+            .logo { width: 90px; height: 90px; }
+            header { margin-bottom: 20px; }
+            .motto { font-size: 1.15rem; line-height: 1.5; margin-bottom: 24px; }
+            .intro { margin-bottom: 20px; }
+            p { font-size: 1rem; line-height: 1.5; }
+            footer { margin-top: 24px; font-size: 0.85em; }
+        }
+        @media (max-height: 600px) {
+            .logo { width: 70px; height: 70px; }
+            header { margin-bottom: 14px; }
+            .motto { font-size: 1.05rem; line-height: 1.4; margin-bottom: 16px; }
+            .intro { margin-bottom: 14px; }
+            p { font-size: 0.95rem; line-height: 1.4; }
+            footer { margin-top: 16px; }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -19,110 +64,11 @@
             <article>
                 <section class="intro fade-in-up">
                     <p class="motto">Naget revolutionizes content discovery through an AI-powered ecosystem that transforms how we generate, organize, share, and discover valuable content. We're building the future of search.</p>
-                    <p style="margin-top: 30px;"><a href="manifesto" style="font-size: 1.2em; font-weight: 600;">Read our manifesto →</a></p>
-                </section>
-
-                <section class="search-showcase-section fade-in-up delay-4">
-                    <h2>Understand Any Query, In Any Context</h2>
-                    <p style="font-size: 1.15em;">Naget understands your intent, no matter how complex.</p>
-                    <div class="search-showcase">
-                        <h3 id="currentSearchCategoryHeading" class="search-category-display"></h3>
-                        <div class="searchbar-container">
-                            <textarea id="exampleSearchQuery" placeholder="Try a search like..." readonly></textarea>
-                            <div class="search-icon">
-                                <i class="fas fa-search"></i>
-                            </div>
-                        </div>
-                        <div class="carousel-container">
-                            <div class="carousel-slides">
-                                <div class="carousel-slide" data-category="Sales & Market Research">
-                                    <p class="query-example">Tech startups focusing on generative AI and federated learning with seed funding under $5M in California that have female founders</p>
-                                </div>
-                                <div class="carousel-slide" data-category="Academic Research">
-                                    <p class="query-example">Peer-reviewed papers on transformer models for protein folding published after 2022 with at least 50 citations that challenge existing methodologies</p>
-                                </div>
-                                <div class="carousel-slide" data-category="Entertainment">
-                                    <p class="query-example">Sci-fi movies with female leads and complex time travel elements, rated 8+, released between 2015-2023, that weren't box office hits but received critical acclaim</p>
-                                </div>
-                                <div class="carousel-slide" data-category="Find People">
-                                    <p class="query-example">Angel investors interested in sustainable energy and climate tech in Northern Europe who have previously exited at least two startups valued over $50M</p>
-                                </div>
-                                <div class="carousel-slide" data-category="Find Places">
-                                    <p class="query-example">Local coffee shops with outdoor seating and high-speed Wi-Fi that serve single-origin beans, offer plant-based food options, and stay open on weekends</p>
-                                </div>
-                                <div class="carousel-slide" data-category="Personal Content">
-                                    <p class="query-example">Find all presentations I created last quarter about market expansion that include competitor analysis and were shared with the executive team</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="vision-section fade-in-up">
-                    <h2>Beyond the Search Bar</h2>
-                    <p>Traditional search engines are stuck in the past, forcing complex information needs into a single text box and delivering generic results. We are not building another 'chatty search bar', but a comprehensive content ecosystem that fundamentally reimagines how we interact with information.</p>
-                    
-                    <div class="feature-blocks">
-                        <div class="feature-block">
-                            <i class="fas fa-gem"></i>
-                            <h3>Nuggets</h3>
-                            <p>Information units organized from across the web and your personal content.</p>
-                        </div>
-                
-                        <div class="feature-block">
-                            <i class="fas fa-search"></i>
-                            <h3>Neural Search</h3>
-                            <p>End-to-end neural search engine that understands complex queries.</p>
-                        </div>
-                
-                        <div class="feature-block">
-                            <i class="fas fa-book"></i>
-                            <h3>Personal Library</h3>
-                            <p>Powerful personal content search with proactive exploration capabilities.</p>
-                        </div>
-                
-                        <div class="feature-block">
-                            <i class="fas fa-shield-alt"></i>
-                            <h3>Privacy-First</h3>
-                            <p>On-device powerful search over your local content without compromising privacy.</p>
-                        </div>
-                    </div>
                 </section>
 
                 <section class="fade-in-up delay-2">
-                    <h2>The Content Discovery Revolution</h2>
-                    <p>Today's information landscape suffers from overwhelming volume, SEO-optimized fluff, and tools that prioritize engagement over value. Naget is building a new discovery engine that:</p>
-                    <div class="feature-blocks" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
-                        <div class="feature-block" style="flex: 1; min-width: 30%;">
-                            <i class="fas fa-brain"></i>
-                            <h3>Deep Understanding</h3>
-                            <p>Understands content at a deeper level with more compute per query</p>
-                        </div>
-                        
-                        <div class="feature-block" style="flex: 1; min-width: 30%;">
-                            <i class="fas fa-user-cog"></i>
-                            <h3>Personal Context</h3>
-                            <p>Personalizes discovery based on your unique context and needs</p>
-                        </div>
-                        
-                        <div class="feature-block" style="flex: 1; min-width: 30%;">
-                            <i class="fas fa-hand-holding-usd"></i>
-                            <h3>Creator Economy</h3>
-                            <p>Empowers content creators with better monetization & minimal fees</p>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="fade-in-up delay-1">
-                    <h2>Building a Community</h2>
-                    <p>Our social platform will empower users to curate and elevate high-quality content, establishing a new standard for discovery platforms that prioritize value over virality.</p>
-                </section>
-
-                <section class="fade-in-up delay-2">
-                    <h2>Development Roadmap</h2>
                     <p>We'll showcase advancements in web-scale search soon.</p>
-                    <p style="margin-top: 30px;"><a href="manifesto" style="font-size: 1.2em; font-weight: 600;">Read our manifesto →</a></p>
-                    <p style="margin-top: 30px;">Connect with us on <a href="https://twitter.com/NagetInc"><i class="fab fa-twitter"></i> Twitter</a> and <a href="https://www.linkedin.com/company/naget-inc"><i class="fab fa-linkedin"></i> LinkedIn</a> for the latest updates.</p>
+                    <p style="margin-top: 30px;">Connect with us on <a href="https://twitter.com/NagetInc"><i class="fab fa-twitter"></i> Twitter</a> and <a href="https://www.linkedin.com/company/naget-inc"><i class="fab fa-linkedin"></i> LinkedIn</a></p>
                 </section>
             </article>
         </main>
@@ -130,187 +76,5 @@
             <p>&copy; 2025 Naget. All rights reserved.</p>
         </footer>
     </div>
-
-    <!-- Scroll indicator arrow -->
-    <div class="scroll-indicator" id="scrollIndicator">
-        <i class="fas fa-chevron-down"></i>
-    </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Scroll indicator functionality
-            const scrollIndicator = document.getElementById('scrollIndicator');
-            const targetHeading = document.querySelector('.search-showcase-section h2');
-            
-            function updateArrowVisibility() {
-                if (!targetHeading) return;
-                
-                const rect = targetHeading.getBoundingClientRect();
-                const windowHeight = window.innerHeight;
-                
-                // Show arrow only when heading is not fully visible yet (still mostly below viewport)
-                // Hide when heading is in view or we've scrolled past it
-                if (rect.top > windowHeight * 0.6 && rect.bottom > 0) {
-                    // Heading is below the bottom 60% of viewport (haven't reached it yet)
-                    scrollIndicator.classList.remove('hidden');
-                } else {
-                    // Heading is approaching or in view
-                    scrollIndicator.classList.add('hidden');
-                }
-            }
-            
-            // Use Intersection Observer to track when the heading is visible
-            const headingObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    updateArrowVisibility();
-                });
-            }, {
-                root: null,
-                threshold: [0, 0.5, 1],
-                rootMargin: '0px'
-            });
-            
-            // Start observing the heading
-            if (targetHeading) {
-                headingObserver.observe(targetHeading);
-                // Check initial state after a brief delay to ensure layout is complete
-                setTimeout(updateArrowVisibility, 100);
-            }
-            
-            // Also update on scroll for smooth behavior
-            window.addEventListener('scroll', updateArrowVisibility);
-
-            // Carousel functionality
-            const carouselSlidesContainer = document.querySelector('.carousel-slides');
-            const exampleSearchInput = document.getElementById('exampleSearchQuery');
-            const currentCategoryHeading = document.getElementById('currentSearchCategoryHeading');
-
-            if (carouselSlidesContainer && exampleSearchInput && currentCategoryHeading) {
-                const slides = Array.from(carouselSlidesContainer.children);
-                let currentSlideIndex = 0;
-                const typingSpeed = 10; // Milliseconds per character (was 70)
-                const pauseBetweenSlides = 2500; // Milliseconds to pause after typing, before next slide (was 4000)
-
-                // Map categories to their appropriate icons
-                const categoryIcons = {
-                    "Sales & Market Research": "fa-chart-line",
-                    "Academic Research": "fa-microscope",
-                    "Entertainment": "fa-film",
-                    "Find People": "fa-users",
-                    "Find Places": "fa-map-marker-alt",
-                    "Personal Content": "fa-folder-open"
-                };
-
-                // Ensure the carousel container itself is hidden (buttons are removed from HTML)
-                const carouselBox = document.querySelector('.carousel-container');
-                if (carouselBox) {
-                    carouselBox.style.display = 'none';
-                }
-
-                function typeEffect(element, text, speed, callback) {
-                    let i = 0;
-                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                        element.value = ''; // Clear input field
-                    } else {
-                        element.textContent = ''; // Clear other elements
-                    }
-
-                    function type() {
-                        if (i < text.length) {
-                            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                                element.value += text.charAt(i);
-                            } else {
-                                element.textContent += text.charAt(i);
-                            }
-                            i++;
-                            setTimeout(type, speed);
-                        } else if (callback) {
-                            callback();
-                        }
-                    }
-                    type();
-                }
-
-                let slideCycleTimeoutId = null;
-
-                function scheduleNextSlideTransition() {
-                    clearTimeout(slideCycleTimeoutId);
-                    slideCycleTimeoutId = setTimeout(() => {
-                        currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-                        animateSlideContent();
-                    }, pauseBetweenSlides);
-                }
-
-                function animateSlideContent() {
-                    if (slides.length === 0) return;
-
-                    // First, hide the current headline by removing the show class
-                    if (currentCategoryHeading) {
-                        currentCategoryHeading.classList.remove('show-category');
-                    }
-
-                    // Short delay to ensure the removal is processed
-                    setTimeout(() => {
-                        slides.forEach((slide, index) => {
-                            // Keep track of active slide for querying its content, though it's not directly visible
-                            slide.style.display = (index === currentSlideIndex) ? 'block' : 'none';
-                            if (index === currentSlideIndex) {
-                                slide.classList.add('active');
-                            } else {
-                                slide.classList.remove('active');
-                            }
-                        });
-
-                        const activeSlide = slides[currentSlideIndex];
-                        const category = activeSlide.dataset.category;
-                        const queryExampleElement = activeSlide.querySelector('.query-example');
-                        let queryText = '';
-
-                        if (queryExampleElement) {
-                            queryText = queryExampleElement.innerText || queryExampleElement.textContent.trim();
-                        }
-
-                        // Set the text content of the category heading
-                        if (category) {
-                            const iconClass = categoryIcons[category] || "fa-search";
-                            currentCategoryHeading.innerHTML = `<i class="fas ${iconClass}"></i> ${category}`;
-                        } else {
-                            currentCategoryHeading.textContent = ''; // Clear if no category
-                        }
-
-                        // Ensure the heading is in its pre-animation state
-                        // Force a reflow to ensure the browser processes the change
-                        void currentCategoryHeading.offsetWidth;
-
-                        // Clearer separation - first animate the heading
-                        setTimeout(() => {
-                            // Start the header fade-up animation
-                            currentCategoryHeading.classList.add('show-category');
-
-                            // After header animation completes, start typing the query
-                            setTimeout(() => {
-                                if (queryText) {
-                                    // Clear the search box first
-                                    exampleSearchInput.value = '';
-                                    // Then start typing
-                                    typeEffect(exampleSearchInput, queryText, typingSpeed, scheduleNextSlideTransition);
-                                } else {
-                                    scheduleNextSlideTransition();
-                                }
-                            }, 0); // Reduced delay before starting the typing
-                        }, 50); // Small delay before starting the fade-up
-                    }, 100); // Delay after hiding the current headline
-                }
-
-                if (slides.length > 0) {
-                    // Remove placeholder from search input as it will be animated
-                    if(exampleSearchInput.placeholder) {
-                        exampleSearchInput.placeholder = '';
-                    }
-                    animateSlideContent(); // Start the first animation cycle
-                }
-            }
-        });
-    </script>
 </body>
 </html>
