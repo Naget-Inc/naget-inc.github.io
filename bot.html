@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NagetBot is the web crawler operated by naget.com. Learn how to identify it, control its access via robots.txt, and contact us.">
+    <title>NagetBot ~ Naget's Web Crawler</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="img/naget-app-icon.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            padding: 60px 20px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
+            max-width: 820px;
+        }
+        header { margin-bottom: 30px; }
+        .logo { width: 110px; height: 110px; }
+        .motto {
+            margin-bottom: 50px;
+            font-size: 1.5rem;
+        }
+        main, article { width: 100%; }
+        section {
+            margin-bottom: 50px;
+            padding-bottom: 0;
+            text-align: left;
+        }
+        section:not(:last-of-type)::after { display: none; }
+        section h2 {
+            text-align: left;
+            font-size: 1.6rem;
+            margin-top: 0;
+            margin-bottom: 18px;
+        }
+        section p {
+            text-align: left;
+            font-size: 1.05rem;
+            line-height: 1.75;
+            margin-bottom: 16px;
+        }
+        .info-card {
+            background-color: var(--card-background-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin-bottom: 18px;
+        }
+        .info-card dl {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 14px 20px;
+        }
+        .info-card dt {
+            color: var(--light-text-color);
+            font-weight: 600;
+        }
+        .info-card dd {
+            color: var(--text-color);
+            margin: 0;
+            word-break: break-word;
+        }
+        pre {
+            background-color: var(--background-color);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 18px 22px;
+            overflow-x: auto;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-color);
+            text-align: left;
+        }
+        code {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            background-color: var(--background-color);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 2px 6px;
+            font-size: 0.92em;
+            color: var(--text-color);
+        }
+        ul {
+            text-align: left;
+            margin: 0 0 16px 22px;
+            padding: 0;
+        }
+        ul li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+            color: var(--text-color);
+        }
+        footer { margin-top: 40px; margin-bottom: 0; padding: 0; }
+
+        @media (max-width: 768px) {
+            .container { padding: 30px 16px; }
+            .logo { width: 90px; height: 90px; }
+            header { margin-bottom: 20px; }
+            .motto { font-size: 1.2rem; line-height: 1.5; margin-bottom: 30px; }
+            section { margin-bottom: 36px; }
+            section h2 { font-size: 1.35rem; }
+            section p { font-size: 1rem; line-height: 1.6; }
+            .info-card { padding: 18px 20px; }
+            .info-card dl {
+                grid-template-columns: 1fr;
+                gap: 4px;
+            }
+            .info-card dt { margin-top: 10px; }
+            .info-card dt:first-child { margin-top: 0; }
+            pre { font-size: 0.85rem; padding: 14px 16px; }
+            footer { margin-top: 24px; font-size: 0.85em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="img/naget-logo.svg" alt="Naget Logo" class="logo">
+        </header>
+        <main class="main-content">
+            <article>
+                <section class="intro">
+                    <p class="motto">NagetBot is the web crawler that builds the search index for Naget</p>
+                </section>
+
+                <section>
+                    <h2>Identity</h2>
+                    <p>If you see NagetBot in your server logs, it's our crawler fetching publicly accessible HTML to make it discoverable through Naget. Use the details below to identify legitimate requests.</p>
+                    <div class="info-card">
+                        <dl>
+                            <dt>Bot name</dt>
+                            <dd>NagetBot</dd>
+                            <dt>User-Agent</dt>
+                            <dd><code>Mozilla/5.0 (compatible; NagetBot/1.0; +https://naget.ai/bot)</code></dd>
+                            <dt>robots.txt token</dt>
+                            <dd><code>NagetBot</code></dd>
+                            <dt>Operator</dt>
+                            <dd>naget.com</dd>
+                        </dl>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Purpose</h2>
+                    <p>NagetBot crawls the public web to build a search index for naget.com. It fetches HTML only — it does not execute JavaScript, and does not interact with forms, logins, or paywalled content.</p>
+                </section>
+
+                <section>
+                    <h2>robots.txt compliance</h2>
+                    <p>NagetBot follows the <a href="https://www.rfc-editor.org/rfc/rfc9309.html">Robots Exclusion Protocol</a>. Specifically:</p>
+                    <ul>
+                        <li>Fetches <code>/robots.txt</code> over HTTPS before crawling and obeys <code>Disallow</code> rules for the <code>NagetBot</code> user-agent.</li>
+                        <li>Honors the <code>Crawl-delay</code> directive (capped at 120 seconds).</li>
+                        <li>Honors HTTP <code>429 Too Many Requests</code> and the <code>Retry-After</code> header (capped at 30 seconds).</li>
+                        <li>Caches <code>robots.txt</code> per-domain with a TTL.</li>
+                    </ul>
+                    <p><strong>To block NagetBot entirely:</strong></p>
+<pre>User-agent: NagetBot
+Disallow: /</pre>
+                    <p><strong>Disallow specific paths:</strong></p>
+<pre>User-agent: NagetBot
+Disallow: /private/
+Disallow: /admin/</pre>
+                    <p><strong>Set a crawl delay (seconds between requests, max 120):</strong></p>
+<pre>User-agent: NagetBot
+Crawl-delay: 10</pre>
+                </section>
+
+                <section>
+                    <h2>Request behavior</h2>
+                    <ul>
+                        <li><strong>Protocol:</strong> HTTPS preferred; falls back to HTTP if HTTPS fails.</li>
+                        <li><strong>Methods:</strong> <code>GET</code> only.</li>
+                        <li><strong>Content types fetched:</strong> HTML / XHTML only — non-HTML responses are dropped without reading the body.</li>
+                        <li><strong>Max response body:</strong> 5 MiB (truncated beyond that).</li>
+                        <li><strong>Timeouts:</strong> ~2s connect, ~3s read by default.</li>
+                        <li><strong>Cookies / auth / Referer:</strong> none sent.</li>
+                    </ul>
+                    <p><strong>Headers sent with every request:</strong></p>
+<pre>User-Agent: Mozilla/5.0 (compatible; NagetBot/1.0; +https://naget.ai/bot)
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.9</pre>
+                </section>
+
+                <section>
+                    <h2>Rate limiting</h2>
+                    <ul>
+                        <li><strong>Per-domain concurrency:</strong> max 8 concurrent requests.</li>
+                        <li><strong>Minimum delay:</strong> 50 ms between requests to the same domain (overridden upward by any <code>Crawl-delay</code> directive).</li>
+                        <li><strong>Retries:</strong> one retry with backoff on transient errors or <code>429</code>s, then the URL is dropped.</li>
+                        <li><strong>Error handling:</strong> domains returning repeated errors are skipped on subsequent recrawls.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Verifying NagetBot</h2>
+                    <p>Because the User-Agent string can be spoofed, we recommend verifying that requests genuinely originate from our infrastructure before granting bot-specific privileges.</p>
+                    <p><em>A published list of source IP ranges and a reverse-DNS verification pattern will be available here shortly. If you need to verify a specific request in the meantime, please contact us using the channels below.</em></p>
+                </section>
+
+                <section>
+                    <h2>Page-level controls</h2>
+                    <p>You can control how individual pages are indexed using standard meta tags:</p>
+<pre>&lt;meta name="NagetBot" content="noindex, nofollow"&gt;</pre>
+                    <p>Or apply directives to all crawlers:</p>
+<pre>&lt;meta name="robots" content="noindex, nofollow"&gt;</pre>
+                </section>
+            </article>
+        </main>
+        <footer>
+            <p>&copy; 2026 Naget. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
